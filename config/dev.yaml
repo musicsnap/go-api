@@ -1,7 +1,5 @@
 server:
   port: 10002
-cdn: editor-img.888ban.com
-cdn_qianku: bpic.588ku.com
 cdn_protocol: http
 mysql:
   web:
