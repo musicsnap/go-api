@@ -88,10 +88,10 @@ func Now() string {
 	return time.Now().Format("2006-01-02 15:04:05")
 }
 
-func Gethttp(url string) string {
+func Gethttp(url string, num int) string {
 	var wg sync.WaitGroup
 	start := time.Now()
-	for i := 0; i < 200; i++ {
+	for i := 0; i < num; i++ {
 		// Increment the WaitGroup counter.
 		wg.Add(1)
 		// Launch a goroutine to fetch the URL.
