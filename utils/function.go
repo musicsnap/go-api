@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"go-api/middlewares"
 	"io"
 	"log"
@@ -9,6 +10,7 @@ import (
 	"os"
 	"path"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -84,4 +86,26 @@ func Warning(err error, message string) {
 
 func Now() string {
 	return time.Now().Format("2006-01-02 15:04:05")
+}
+
+func Gethttp(url string) string {
+	var wg sync.WaitGroup
+	start := time.Now()
+	for i := 0; i < 200; i++ {
+		// Increment the WaitGroup counter.
+		wg.Add(1)
+		// Launch a goroutine to fetch the URL.
+		go func() {
+			// Decrement the counter when the goroutine completes.
+			defer wg.Done()
+			// Fetch the URL.
+			resp, _ := http.Get(url)
+			defer resp.Body.Close()
+			//fmt.Println(resp.Status)
+		}()
+	}
+	// Wait for all HTTP fetches to complete.
+	wg.Wait()
+	fmt.Println(time.Now().Sub(start).Seconds())
+	return ""
 }

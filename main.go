@@ -1,15 +1,15 @@
 package main
 
-
 import (
 	"flag"
 	"fmt"
+	"go-api/utils"
 	"log"
 	"os"
+	"runtime"
 
 	"go-api/config"
 	"go-api/routers"
-	"go-api/storage"
 )
 
 func main() {
@@ -23,12 +23,19 @@ func main() {
 	fmt.Println("Current Env: ", *environment)
 	config.Init(*environment)
 
+	num := runtime.NumCPU()
+	//在这里设置num-1的cpu运行go程序
+	runtime.GOMAXPROCS(num)
+	fmt.Println("num =", num)
+
+	fmt.Println(utils.Now())
+
 	//2、db存储
-	storage.InitDB()
-	storage.InitRedis()
-	storage.InitMongo()
-	storage.InitElasticsearch()
-	storage.InitMns()
+	//storage.InitDB()
+	//storage.InitRedis()
+	//storage.InitMongo()
+	//storage.InitElasticsearch()
+	//storage.InitMns()
 
 	err := os.MkdirAll("./locks", 0777)
 	if err != nil {

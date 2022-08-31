@@ -1,9 +1,10 @@
 module go-api
 
-go 1.14
+go 1.16
 
 require (
 	github.com/aliyun/aliyun-mns-go-sdk v1.0.2
+	github.com/aliyun/aliyun-oss-go-sdk v2.2.5+incompatible
 	github.com/facebookgo/stack v0.0.0-20160209184415-751773369052 // indirect
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.8.1
