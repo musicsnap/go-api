@@ -16,11 +16,11 @@ var WebDb *gorm.DB
 func InitDB() {
 	conf := config.GetConfig()
 
-	host := conf.GetString("mysql.editor_web.host")
-	username := conf.GetString("mysql.editor_web.username")
-	password := conf.GetString("mysql.editor_web.password")
-	port := conf.GetString("mysql.editor_web.port")
-	dbname := conf.GetString("mysql.editor_web.dbname")
+	host := conf.GetString("mysql.web.host")
+	username := conf.GetString("mysql.web.username")
+	password := conf.GetString("mysql.web.password")
+	port := conf.GetString("mysql.web.port")
+	dbname := conf.GetString("mysql.web.dbname")
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", username, password, host, port, dbname)
 	WebDb, _ = gorm.Open(mysql.Open(dsn), &gorm.Config{
