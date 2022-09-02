@@ -1,4 +1,4 @@
-package storage
+package bootstrap
 
 import (
 	mns "github.com/aliyun/aliyun-mns-go-sdk"

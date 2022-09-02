@@ -31,11 +31,11 @@ func main() {
 	fmt.Println(utils.Now())
 
 	//2、db存储
-	//storage.InitDB()
-	//storage.InitRedis()
-	//storage.InitMongo()
-	//storage.InitElasticsearch()
-	//storage.InitMns()
+	//bootstrap.InitDB()
+	//bootstrap.InitRedis()
+	//bootstrap.InitMongo()
+	//bootstrap.InitElasticsearch()
+	//bootstrap.InitMns()
 
 	err := os.MkdirAll("./locks", 0777)
 	if err != nil {

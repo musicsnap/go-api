@@ -1,4 +1,4 @@
-package storage
+package bootstrap
 
 import (
 	"github.com/aliyun/aliyun-oss-go-sdk/oss"

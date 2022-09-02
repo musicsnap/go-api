@@ -1,4 +1,4 @@
-package storage
+package bootstrap
 
 import (
 	"fmt"
@@ -43,4 +43,3 @@ func InitDB() {
 func GetDB() *gorm.DB {
 	return WebDb
 }
-
